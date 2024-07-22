@@ -31,9 +31,7 @@ export default function ProductContainer()
         <div className="product-container">
             <div className="img-container">
                 <div className="selected-img-container">
-                    <button className="img-slider" onClick={previousImg}>⮜</button>
                     <img className="showed-img" src={product.imgs[selImg]} alt={`${product.title}/img[${selImg}]`}/>
-                    <button className="img-slider" onClick={nextImg}>⮞</button>
                 </div>
 
                 <div className="img-gallery">
@@ -45,6 +43,9 @@ export default function ProductContainer()
                         })
                     }
                 </div>
+                
+                <button className="img-slider prev" onClick={previousImg}>⮜</button>
+                <button className="img-slider next" onClick={nextImg}>⮞</button>
             </div>
             <h2>{product.title}</h2>
         </div>
