@@ -1,0 +1,118 @@
+* {
+  color: #f1eeee;
+}
+
+html {
+  background-color: #0a0908;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5f5a4b;
+  background-color: #1b1a16;
+}
+
+.App {
+  text-align: center;
+}
+
+div.products-container {
+  display: grid;
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+div.product-block {
+  display: flex;
+  min-height: 300px;
+  margin: 10px;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #161514;
+  border-radius: 10px;
+}
+
+div.selected-img-container {
+  display: flex;
+  width: 20%;
+}
+
+div.img-gallery {
+  display: flex;
+}
+
+img.selected-img, img.img {
+  width: 200px;
+}
+
+img.selected-img {
+  border: 5px solid #bfb0af;
+}
+  
+img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+h3.title {
+  display: inline-block;
+  width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+h4.price {
+  text-align: end;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  color: #0a0908;
+  font-weight: bold;
+  background-color: #bfb0af;
+  border: 2px solid #dac9c8;
+  border-radius: 7px;
+}
+
+button:hover {
+  background-color: #dac9c8;
+  border: 2px solid #e7d6d5;
+}
+
+button:active {
+  background-color: #ad9e9d;
+  border: 2px solid #b3a4a2;
+}
+
+button.add-to-cart {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: auto;
+}
+
+button.img-slider {
+  margin: 0;
+  padding: 20px;
+  background-color: #131210;
+  color: #f1eeee;
+  border: none;
+  border-radius: 0;
+}
+
+button.img-slider:hover {
+  background-color: #161514;
+}
+
+button.img-slider:active {
+  background-color: #11100e;
+}
