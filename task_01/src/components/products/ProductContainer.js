@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ProductContainer()
 {
@@ -8,6 +8,7 @@ export default function ProductContainer()
     const products = useSelector(state => state);
     const product = products.find(product => product.id === +id);
     const [selImg, setSelImg] = useState(0);
+    const navigate = useNavigate();
 
     const nextImg = () => {
         if (selImg < product.imgs.length - 1)
@@ -26,6 +27,14 @@ export default function ProductContainer()
     const changeImg = (index) => {
         setSelImg(index);
     }
+
+    useEffect(() => {
+        if (!product) {
+            navigate('/');
+        }
+    }, [product, navigate]);
+
+    if (!product) return null;
 
     return (
         <div className="product-container">
@@ -47,7 +56,21 @@ export default function ProductContainer()
                 <button className="img-slider prev" onClick={previousImg}>⮜</button>
                 <button className="img-slider next" onClick={nextImg}>⮞</button>
             </div>
-            <h2>{product.title}</h2>
+
+            <div className="details-container">
+                <h1>{product.title}</h1>
+                <h2 className="price">{product.price}</h2>
+
+                <div className="button-container">
+                    <button className="add-to-cart">Buy</button>
+                    <button className="buy-on-credit">Buy on credit</button>
+                </div>
+            </div>
+
+            <div className="description-container">
+                <p>Details:</p>
+                <div className="product-details-container" dangerouslySetInnerHTML={{ __html: product.info }} />
+            </div>
         </div>
     )
 }

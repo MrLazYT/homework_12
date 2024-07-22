@@ -12,6 +12,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<ProductList/>}/>
+          <Route path='*' element={<ProductList/>}/>
           <Route path='/:id' element={<ProductContainer/>}/>
         </Routes>
 
