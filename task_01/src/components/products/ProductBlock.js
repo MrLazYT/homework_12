@@ -5,7 +5,7 @@ export default function ProductBlock({ id, title, img, price })
     const navigate = useNavigate();
 
     const viewProductDetails = () => {
-        navigate(`/${id}`);
+        navigate(`/products/${id}`);
     }
 
     return (

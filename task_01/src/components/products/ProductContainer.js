@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function ProductContainer()
 {
     const { id } = useParams();
-    const products = useSelector(state => state);
-    const product = products.find(product => product.id === +id);
+    const product = useSelector(state => state.find(product => product.id === +id));
     const [selImg, setSelImg] = useState(0);
-    const navigate = useNavigate();
 
     const nextImg = () => {
         if (selImg < product.imgs.length - 1)
@@ -28,14 +26,6 @@ export default function ProductContainer()
         setSelImg(index);
     }
 
-    useEffect(() => {
-        if (!product) {
-            navigate('/');
-        }
-    }, [product, navigate]);
-
-    if (!product) return null;
-
     return (
         <div className="product-container">
             <div className="img-container">
@@ -47,7 +37,7 @@ export default function ProductContainer()
                     {
                         product.imgs.map((img, index) => {
                             return (
-                                <img className={selImg === index ? "selected-img" : "img"} src={img} alt={`${product.title}/img[${index}]`} onClick={() => {changeImg(index)}}/>
+                                <img key={index} className={selImg === index ? "selected-img" : "img"} src={img} alt={`${product.title}/img[${index}]`} onClick={() => {changeImg(index)}}/>
                             );
                         })
                     }
